@@ -1,4 +1,7 @@
 #page-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     font-family: 'Lato', georgia;
     font-size: 25px;
     color: rgba(255, 255, 255, 1);
