@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DELLAVIE</title>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
     <link rel="stylesheet" type="text/css" href="css/component.css" />
     <script src="js/modernizr-custom.js"></script>
@@ -16,14 +16,15 @@
     <!-- navigation -->
     <nav class="pages-nav">
         <div class="pages-nav__item"><a class="link link--page" href="#page-home">Home</a></div>
+        <div class="pages-nav__item"><a class="link link--page" href="#page-store">Store</a></div>
         <div class="pages-nav__item"><a class="link link--page" href="#page-about">About Us</a></div>
-        <div class="pages-nav__item"><a class="link link--page" href="#page-products">Products</a></div>
-        <div class="pages-nav__item"><a class="link link--page" href="#page-store">The Store</a></div>
-        <div class="pages-nav__item"><a class="link link--page" href="#page-where">Where To BUy</a></div>
-        <div class="pages-nav__item"><a class="link link--page" href="#page-contact">Contact US</a></div>
         <div class="pages-nav__item pages-nav__item--small"><a class="link link--page link--faded" href="#page-exclusif">EXCLUSIVF</a></div>
         <div class="pages-nav__item pages-nav__item--small"><a class="link link--page link--faded" href="#page-special">SPECIAL</a></div>
         <div class="pages-nav__item pages-nav__item--small"><a class="link link--page link--faded" href="#page-original">ORIGINAL</a></div>
+
+        <div class="pages-nav__item pages-nav__item--social">
+            <a class="link link link--page link--social link--faded" href="#page-contact"><i class="fa fa-telegram" aria-hidden="true"></i><span class="text-hidden">CONTACT US</span></a>
+        </div>
     </nav>
 
     <!-- /navigation-->
@@ -45,9 +46,19 @@
 
 
             </header>
+
             <img class="poster" src="images/beans.png" alt="beans" />
         </div>
         <!-- /page -->
+        <div class="page" id="page-store">
+            <header class="bp-header cf">
+                <h1 class="bp-header__title">Products</h1>
+
+            </header>
+            <img class="poster" src="images/2.jpg" alt="img02" />
+            <img class="poster" src="images/2.jpg" alt="img02" />
+            <img class="poster" src="images/2.jpg" alt="img02" />
+        </div>
         <div class="page" id="page-about">
             <header class="bp-header cf">
                 <h1 class="bp-header__title">About us</h1>
@@ -60,37 +71,8 @@
                 <p class="info">A meeting in all its manifestations is a business-meeting, a romtic moment, a meeting of friends, and dawn as a meeting of days and night...All these moments give us hundreds of oportunities to create little miracles for ourselves, our families and friends;this is always the beginning of changes, the begining of something of nes. A meeting always devides time into "befor" and "after"...</p>
 
             </header>
-            <img class="poster" src="images/cappuccino_cup.png" alt="img06" />
-        </div>
-        <div class="page" id="page-products">
-            <header class="bp-header cf">
-                <h1 class="bp-header__title">Products</h1>
 
-                <p class="info">
-                    "When you adopt a vegan diet we make a connection, you don't go back, it is not a diet, it is a lifestyle." &mdash; Freelee Frugivore
-                </p>
-            </header>
-            <img class="poster" src="images/2.jpg" alt="img02" />
-        </div>
-        <div class="page" id="page-store">
-            <header class="bp-header cf">
-                <h1 class="bp-header__title">Software &amp; Downloads</h1>
-                <p class="bp-header__desc">Based on Ilya Kostin's Dribbble shot <a href="https://dribbble.com/shots/2286042-Stacked-navigation">Stacked navigation</a></p>
-                <p class="info">
-                    "I decided to pick the diet that I thought would maximize my chances of long-term survival." &mdash; Al Gore
-                </p>
-            </header>
-            <img class="poster" src="images/3.jpg" alt="img03" />
-        </div>
-        <div class="page" id="page-where">
-            <header class="bp-header cf">
-                <h1 class="bp-header__title">Customization &amp; Settings</h1>
-                <p class="bp-header__desc">Based on Ilya Kostin's Dribbble shot <a href="https://dribbble.com/shots/2286042-Stacked-navigation">Stacked navigation</a></p>
-                <p class="info">
-                    "You have to make a conscious decision to change for your own well-being, that of your family and your country." &mdash;Bill Clinton
-                </p>
-            </header>
-            <img class="poster" src="images/4.jpg" alt="img04" />
+            <img class="poster" src="images/cappuccino_cup.png" alt="img06" />
         </div>
         <div class="page" id="page-contact">
             <header class="bp-header cf">
@@ -102,6 +84,7 @@
             </header>
             <img class="poster" src="images/5.jpg" alt="img05" />
         </div>
+
         <div class="page" id="page-exclusif">
             <header class="bp-header cf">
                 <h1 class="bp-header__title">Where to buy</h1>
@@ -132,6 +115,8 @@
             </header>
             <img class="poster" src="images/4.jpg" alt="img04" />
         </div>
+
+
     </div>
     <!-- /pages-stack -->
     <button class="menu-button"><span>Menu</span></button>

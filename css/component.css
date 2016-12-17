@@ -92,6 +92,10 @@ html.js,
 .link--page.link--faded {
     font-size: 0.65em;
 }
+.link--social {
+    font-size: 4em;
+    margin: 0 0.75em;
+}
 .text-hidden {
     position: absolute;
     display: block;
