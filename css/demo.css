@@ -67,6 +67,13 @@ a:hover {
     margin-top: 1em;
     width: 20%;
 }
+ul {
+    margin-left: -20px;
+    color: #8E8F90;
+}
+li {
+    padding: 3px;
+}
 @media screen and (max-width: 40em) {
     .bp-header {
         padding: 50px 20px 1em;
@@ -74,4 +81,14 @@ a:hover {
     .bp-header__title {
         font-size: 1.8em;
     }
+}
+.country {
+    width: 20%;
+    padding: 20px;
+}
+.sp {
+    color: #1CA492;
+}
+.or {
+    color: #C4406F;
 }

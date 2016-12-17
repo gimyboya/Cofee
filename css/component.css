@@ -64,6 +64,18 @@ html.js,
     display: block;
     color: #362E26;
 }
+.sph:hover,
+.sph:focus {
+    color: #1CA492;
+}
+.exh:hover,
+.exh:focus {
+    color: #E46119;
+}
+.orh:hover,
+.orh:focus {
+    color: #C4406F;
+}
 .link--page:not(.link--faded)::before {
     content: '';
     position: absolute;
@@ -83,17 +95,13 @@ html.js,
     transform: scale3d(1, 1, 1);
 }
 .link--faded {
-    color: #4f4f64;
-}
-.link--faded:hover,
-.link--faded:focus {
-    color: #5c5edc;
+    color: #6D4626;
 }
 .link--page.link--faded {
-    font-size: 0.65em;
+    font-size: 0.9em;
 }
-.link--social {
-    font-size: 4em;
+.link--page.link--faded.link--social {
+    font-size: 3.71em;
     margin: 0 0.75em;
 }
 .text-hidden {
