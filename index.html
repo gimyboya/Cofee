@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
     <link rel="stylesheet" type="text/css" href="css/component.css" />
     <link rel="stylesheet" type="text/css" href="css/contact.css" />
+    <link rel="stylesheet" type="text/css" href="css/store.css" />
+
     <script src="js/modernizr-custom.js"></script>
 </head>
 
@@ -52,13 +54,63 @@
         </div>
         <!-- /page -->
         <div class="page" id="page-store">
-            <header class="bp-header cf">
-                <h1 class="bp-header__title">Products</h1>
-
+            <header class="bp-header cf st-header">
+                <h1 class="bp-header__title st-h">Products</h1>
             </header>
-            <img class="poster" src="images/2.jpg" alt="img02" />
-            <img class="poster" src="images/2.jpg" alt="img02" />
-            <img class="poster" src="images/2.jpg" alt="img02" />
+            <ul class="cd-items cd-container">
+                <li class="cd-item">
+                    <img src="images/item-1.jpg" alt="Item Preview">
+                    <a href="#0" class="cd-trigger">Quick View</a>
+                </li>
+                <!-- cd-item -->
+
+                <li class="cd-item">
+                    <img src="images/item-1.jpg" alt="Item Preview">
+                    <a href="#0" class="cd-trigger">Quick View</a>
+                </li>
+                <!-- cd-item -->
+
+                <li class="cd-item">
+                    <img src="images/item-1.jpg" alt="Item Preview">
+                    <a href="#0" class="cd-trigger">Quick View</a>
+                </li>
+                <!-- cd-item -->
+            </ul>
+
+            <div class="cd-quick-view">
+                <div class="cd-slider-wrapper">
+                    <ul class="cd-slider">
+                        <li class="selected"><img src="images/item-1.jpg" alt="Product 1"></li>
+                        <li><img src="images/item-2.jpg" alt="Product 2"></li>
+                        <li><img src="images/item-3.jpg" alt="Product 3"></li>
+                    </ul>
+                    <!-- cd-slider -->
+
+                    <ul class="cd-slider-navigation">
+                        <li><a class="cd-next" href="#0">Prev</a></li>
+                        <li><a class="cd-prev" href="#0">Next</a></li>
+                    </ul>
+                    <!-- cd-slider-navigation -->
+                </div>
+                <!-- cd-slider-wrapper -->
+
+                <div class="cd-item-info">
+                    <h2>Produt Title</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium.</p>
+
+                    <ul class="cd-item-action">
+                        <li>
+                            <button class="add-to-cart">Add to cart</button>
+                        </li>
+                        <li><a href="#0">Learn more</a></li>
+                    </ul>
+                    <!-- cd-item-action -->
+                </div>
+                <!-- cd-item-info -->
+                <a href="#0" class="cd-close">Close</a>
+            </div>
+            <!-- cd-quick-view -->
+
         </div>
         <div class="page" id="page-about">
             <header class="bp-header cf">
@@ -170,8 +222,12 @@
     </div>
     <!-- /pages-stack -->
     <button class="menu-button"><span>Menu</span></button>
+
+
+
     <script src="js/classie.js"></script>
     <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/velocity.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 
