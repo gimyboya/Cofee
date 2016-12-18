@@ -86,7 +86,7 @@
                 }
             } else {
                 classie.remove(page, 'page--inactive');
-                page.style.overflow = 'scroll';
+                page.style.overflow = 'scroll'; //to allow the page to scroll
             }
 
             page.style.zIndex = i < current ? parseInt(current - i) : parseInt(pagesTotal + current - i);
@@ -319,22 +319,58 @@
     //open the quick view panel
     $('.cd-trigger').on('click', function (event) {
         var selectedImage = $(this).parent('.cd-item').children('img'),
-            slectedImageUrl = selectedImage.attr('src');
+            selectedproduct = $(this).parent('.cd-item'),
+            qvcontent = selectedproduct.children('.quick-view-content').html(),
+            qvwarpper = document.getElementById('cd-quick-view');
+        qvoveraly = document.getElementById('cd-quick-view-coverlay');
 
-        $('body').addClass('overlay-layer');
+        slectedImageUrl = selectedImage.attr('src');
+
+        $('#page-store').addClass('overlay-layer');
+
+        $(qvoveraly).addClass('overlay_active');
+
         animateQuickView(selectedImage, sliderFinalWidth, maxQuickWidth, 'open');
 
         //update the visible slider image in the quick view panel
         //you don't need to implement/use the updateQuickView if retrieving the quick view data with ajax
         updateQuickView(slectedImageUrl);
+
+        $('#cd-quick-view').children('.quick-view-content-wrapper').remove();
+        $(qvwarpper).append(qvcontent);
+
+        // $('body, html').css({
+        // 	'overflow':'hidden',
+        // 	'height':'100%'
+        // });
+
     });
 
     //close the quick view panel
-    $('body').on('click', function (event) {
-        if ($(event.target).is('.cd-close') || $(event.target).is('body.overlay-layer')) {
-            closeQuickView(sliderFinalWidth, maxQuickWidth);
-        }
+    $(document).on('click', '.cd-close', function (event) {
+
+        closeQuickView(sliderFinalWidth, maxQuickWidth);
+        $(qvoveraly).removeClass('overlay_active');
+
+        // $('body, html').css({
+        // 	'overflow':'auto',
+        // 	'height':'auto'
+        // });
+
     });
+
+    $('#cd-quick-view-coverlay').click(function (event) {
+
+        closeQuickView(sliderFinalWidth, maxQuickWidth);
+        $(qvoveraly).removeClass('overlay_active');
+
+        $('#page-store').css({
+            'overflow': 'auto',
+            'height': 'auto'
+        });
+
+    });
+
     $(document).keyup(function (event) {
         //check if user has pressed 'Esc'
         if (event.which == '27') {
@@ -342,7 +378,10 @@
         }
     });
 
-    
+    //quick view slider implementation
+    $('.cd-quick-view').on('click', '.cd-slider-navigation a', function () {
+        updateSlider($(this));
+    });
 
     //center quick-view on window resize
     $(window).on('resize', function () {
@@ -351,9 +390,19 @@
         }
     });
 
-    
+    function updateSlider(navigation) {
+        var sliderConatiner = navigation.parents('.cd-slider-wrapper').find('.cd-slider'),
+            activeSlider = sliderConatiner.children('.selected').removeClass('selected');
+        if (navigation.hasClass('cd-next')) {
+            (!activeSlider.is(':last-child')) ? activeSlider.next().addClass('selected'): sliderConatiner.children('li').eq(0).addClass('selected');
+        } else {
+            (!activeSlider.is(':first-child')) ? activeSlider.prev().addClass('selected'): sliderConatiner.children('li').last().addClass('selected');
+        }
+    }
 
-    
+    function updateQuickView(url) {
+        $('.cd-quick-view .cd-slider li').removeClass('selected').find('img[src="' + url + '"]').parent('li').addClass('selected');
+    }
 
     function resizeQuickView() {
         var quickViewLeft = ($(window).width() - $('.cd-quick-view').width()) / 2,
@@ -368,13 +417,16 @@
         var close = $('.cd-close'),
             activeSliderUrl = close.siblings('.cd-slider-wrapper').find('.selected img').attr('src'),
             selectedImage = $('.empty-box').find('img');
+
         //update the image in the gallery
         if (!$('.cd-quick-view').hasClass('velocity-animating') && $('.cd-quick-view').hasClass('add-content')) {
             selectedImage.attr('src', activeSliderUrl);
             animateQuickView(selectedImage, finalWidth, maxQuickWidth, 'close');
+
         } else {
             closeNoAnimation(selectedImage, finalWidth, maxQuickWidth);
         }
+
     }
 
     function animateQuickView(image, finalWidth, maxQuickWidth, animationType) {
@@ -424,7 +476,7 @@
                 'left': finalLeft + 'px',
                 'width': finalWidth + 'px',
             }, 300, 'ease', function () {
-                $('body').removeClass('overlay-layer');
+                $('#page-store').removeClass('overlay-layer');
                 $('.cd-quick-view').removeClass('animate-width').velocity({
                     "top": topSelected,
                     "left": leftSelected,
@@ -434,6 +486,7 @@
                     parentListItem.removeClass('empty-box');
                 });
             });
+
         }
     }
 
@@ -444,13 +497,22 @@
             widthSelected = image.width();
 
         //close the quick view reverting the animation
-        $('body').removeClass('overlay-layer');
+        $('#page-store').removeClass('overlay-layer');
         parentListItem.removeClass('empty-box');
         $('.cd-quick-view').velocity("stop").removeClass('add-content animate-width is-visible').css({
             "top": topSelected,
             "left": leftSelected,
             "width": widthSelected,
         });
+
+
     }
+
+    /* Stop page jumping when links are pressed */
+    $('a[href="#"]').on("click", function (e) {
+        return false; // prevent default click action from happening!
+        e.preventDefault(); // same thing as above
+    });
+
 
 })(window);
