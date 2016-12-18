@@ -48,11 +48,13 @@ Primary style
 *::before {
     content: '';
 }
-#page-store {
+body {
+    font-size: 100%;
+    font-family: "PT Sans", sans-serif;
     color: #3e585f;
-    background-color: #221E1F;
+    background-color: #47374e;
 }
-#page-store::after {
+body::after {
     /* dark overlay layer - visible when we fire .cd-quick-view */
     position: fixed;
     top: 0;
@@ -67,7 +69,7 @@ Primary style
     transition: opacity .3s 0s, visibility 0s .3s;
 }
 @media only screen and (min-width: 1024px) {
-    #page-store.overlay-layer::after {
+    body.overlay-layer::after {
         visibility: visible;
         opacity: 1;
         -webkit-transition: opacity .3s 0s, visibility 0s 0s;
@@ -75,11 +77,11 @@ Primary style
         transition: opacity .3s 0s, visibility 0s 0s;
     }
 }
-#page-store a {
+a {
     color: #f82f53;
     text-decoration: none;
 }
-#page-store img {
+img {
     max-width: 100%;
 }
 
@@ -89,15 +91,13 @@ Modules - reusable parts of our design
 
 -------------------------------- */
 
-#page-store .cd-container {
+.cd-container {
     /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
-    display: flex;
-    justify-content: center;
     width: 90%;
     max-width: 1170px;
     margin: 0 auto;
 }
-#page-store .cd-container:after {
+.cd-container:after {
     content: "";
     display: table;
     clear: both;
@@ -109,7 +109,11 @@ Main components
 
 -------------------------------- */
 
-#page-store .st-header {
+html,
+body {
+    height: 100%;
+}
+header {
     position: relative;
     height: 160px;
     line-height: 170px;
@@ -117,70 +121,73 @@ Main components
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-#page-store .st-header .st-h {
+header h1 {
     color: #ffffff;
     font-size: 20px;
     font-size: 1.25rem;
 }
 @media only screen and (min-width: 768px) {
-    #page-store .st-header {
+    header {
         line-height: 180px;
     }
-    #page-store .st-header .st-h {
+    header h1 {
         font-size: 26px;
         font-size: 1.625rem;
     }
 }
 @media only screen and (min-width: 1024px) {
-    #page-store .st-header {
+    header {
         line-height: 220px;
     }
 }
+.cd-items {
+    padding: 1em 0;
+}
 @media only screen and (min-width: 768px) {
-    #page-store .cd-items {
+    .cd-items {
         padding: 2em 0 0;
     }
 }
 @media only screen and (min-width: 1024px) {
-    #page-store .cd-items {
+    .cd-items {
         padding: 4em 0 0;
     }
 }
-#page-store.cd-item {
-    flex-grow: 1;
-    align-self: center;
+.cd-item {
     position: relative;
     margin: 0 0 1em;
-    display: flex;
-    justify-content: center;
 }
-#page-store .cd-item > img {
+.cd-item > img {
     display: block;
     width: 100%;
+    /*}
+.cd-quick-view{
+	position:relative;
+	z-index:9999*/
 }
 @media only screen and (min-width: 768px) {
-    #page-store .cd-item {
+    .cd-item {
         width: 48%;
         float: left;
         margin: 0 4% 2em 0;
     }
-    #page-store .cd-item:nth-child(2n) {
+    .cd-item:nth-child(2n) {
         margin-right: 0;
     }
 }
 @media only screen and (min-width: 1024px) {
-    #page-store .cd-item {
+    .cd-item {
         width: 22%;
         float: left;
         margin: 0 4% 2.8em 0;
     }
-    #page-store .cd-item:nth-child(2n) {
+    .cd-item:nth-child(2n) {
         margin-right: 4%;
     }
-    #page-store .cd-item:nth-child(4n) {
+    .cd-item:nth-child(4n) {
         margin-right: 0;
     }
-    #page-store .cd-item.empty-box::after {
+    .cd-item.empty-box::after {
         /* box visible as placeholder when the .cd-quick-view zooms in */
         position: absolute;
         top: 0;
@@ -190,58 +197,54 @@ Main components
         background-color: #392c3f;
     }
 }
-#page-store .cd-item > .cd-trigger {
-    flex-grow: 1;
-}
-#page-store .cd-trigger {
-    display: block;
-    padding: 20px;
+.cd-trigger {
+    position: absolute;
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.1);
     text-align: center;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #8A7862;
+    color: #ffffff;
     opacity: 0;
     visibility: hidden;
     -webkit-transition: opacity 0.2s, background-color 0.2s;
     -moz-transition: opacity 0.2s, background-color 0.2s;
     transition: opacity 0.2s, background-color 0.2s;
 }
-#page-store .no-touch .cd-trigger:hover {
+.no-touch .cd-trigger:hover {
     background: rgba(0, 0, 0, 0.2);
 }
 @media only screen and (min-width: 1024px) {
-    #page-store .cd-trigger {
+    .cd-trigger {
         /* always visible on small devices */
         visibility: visible;
         opacity: 1;
     }
 }
 @media only screen and (min-width: 1170px) {
-    #page-store .cd-trigger {
+    .cd-trigger {
         /* only visible on hover on big devices */
-        opacity: 1;
+        opacity: 0;
     }
 }
 @media only screen and (min-width: 1170px) {
-    #page-store .no-touch .cd-item:hover .cd-trigger {
+    .no-touch .cd-item:hover .cd-trigger {
         opacity: 1;
     }
-    #page-store .touch .cd-item .cd-trigger {
+    .touch .cd-item .cd-trigger {
         opacity: 1;
     }
 }
-#page-store .cd-quick-view {
+.cd-quick-view {
     /* quick view non available on small devices */
     display: none;
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
 }
 @media only screen and (min-width: 1024px) {
-    #page-store .cd-quick-view {
+    .cd-quick-view {
         display: block;
         position: fixed;
         max-width: 900px;
@@ -255,18 +258,18 @@ Main components
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         will-change: left, top, width;
-        z-index: 1;
+        z-index: 9999;
     }
-    #page-store .cd-quick-view:after {
+    .cd-quick-view:after {
         content: "";
         display: table;
         clear: both;
     }
-    #page-store .cd-quick-view.is-visible {
+    .cd-quick-view.is-visible {
         /* class added when user clicks on .cd-trigger */
         visibility: visible;
     }
-    #page-store .cd-quick-view.animate-width {
+    .cd-quick-view.animate-width {
         /* class added at the end of the first zoom-in animation */
         background-color: #ffffff;
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
@@ -275,38 +278,132 @@ Main components
         transition: box-shadow 0.3s;
     }
 }
-#page-store .cd-slider-wrapper {
+.cd-slider-wrapper {
     position: relative;
     display: inline-block;
     float: left;
 }
-#page-store .cd-slider-wrapper:after {
+.cd-slider-wrapper:after {
     content: "";
     display: table;
     clear: both;
 }
-#page-store .cd-slider {
+.cd-slider {
     float: left;
 }
-#page-store .cd-slider li {
+.cd-slider li {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
 }
-#page-store .cd-slider li img {
+.cd-slider li img {
     display: block;
     width: 100%;
     max-width: 400px;
 }
-#page-store .cd-slider li.selected {
+.cd-slider li.selected {
     position: relative;
     z-index: 3;
 }
-#page-store .cd-item-info {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+.add-content .cd-slider {
+    margin-right: 3em;
+}
+.cd-slider-navigation {
+    opacity: 0;
+}
+.add-content .cd-slider-navigation {
+    opacity: 1;
+}
+.cd-slider-navigation li {
+    position: absolute;
+    top: 50%;
+    bottom: auto;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 3;
+}
+.cd-slider-navigation li:first-child {
+    left: 0;
+}
+.cd-slider-navigation li:last-child {
+    /* equal to the .cd-slider-wrapper margin-right */
+    right: 3em;
+}
+.cd-slider-navigation li a {
+    display: block;
+    width: 40px;
+    height: 50px;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    opacity: 0;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: opacity 0.2s, background 0.2s;
+    -moz-transition: opacity 0.2s, background 0.2s;
+    transition: opacity 0.2s, background 0.2s;
+}
+.cd-slider-navigation li a::before,
+.cd-slider-navigation li a::after {
+    /* create arrows in CSS */
+    position: absolute;
+    top: 18px;
+    left: 14px;
+    display: inline-block;
+    background: #ffffff;
+    height: 3px;
+    width: 12px;
+}
+.cd-slider-navigation li a::before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.cd-slider-navigation li a::after {
+    -webkit-transform: translateY(7px) rotate(-45deg);
+    -moz-transform: translateY(7px) rotate(-45deg);
+    -ms-transform: translateY(7px) rotate(-45deg);
+    -o-transform: translateY(7px) rotate(-45deg);
+    transform: translateY(7px) rotate(-45deg);
+}
+.add-content .cd-slider-navigation li a {
+    opacity: .2;
+}
+.no-touch .cd-slider-navigation li a:hover {
+    background: rgba(71, 55, 78, 0.8);
+    opacity: 1;
+}
+.touch .cd-slider-navigation li a {
+    opacity: 1;
+}
+.cd-slider-navigation li:first-child a::before {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.cd-slider-navigation li:first-child a::after {
+    -webkit-transform: translateY(7px) rotate(45deg);
+    -moz-transform: translateY(7px) rotate(45deg);
+    -ms-transform: translateY(7px) rotate(45deg);
+    -o-transform: translateY(7px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
+}
+.cd-item-info {
+    position: absolute;
     padding: 3em 3em 3em 0;
     visibility: hidden;
     opacity: 0;
@@ -314,37 +411,23 @@ Main components
     -moz-transition: opacity .3s, visibility 0s;
     transition: opacity .3s, visibility 0s;
 }
-#page-store .cd-item-info h2 {
+.cd-item-info h2 {
     font-size: 28px;
     font-size: 1.75rem;
-    align-self: center;
 }
-#page-store .cd-item-info p {
+.cd-item-info p {
     line-height: 1.6;
-    margin: 1em 0 0 10%;
+    margin: 1em 0;
     color: #67919c;
-    align-self: center;
 }
-#page-store .cd-item-info .cd-item-action {
-    align-self: center;
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-}
-#page-store .cd-item-info .cd-item-action li {
+.cd-item-info .cd-item-action li {
     display: inline-block;
     margin-right: 1em;
-    display: flex;
 }
-#page-store .cd-item-info .cd-item-action li a {
-    display: block;
-    padding: .6em 1.2em;
-    align-self: center;
-}
-#page-store .cd-item-info .cd-item-action li:first-child {
+.cd-item-info .cd-item-action li:first-child {
     margin-left: -4px;
 }
-#page-store .cd-item-info .add-to-cart {
+.cd-item-info .add-to-cart {
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
@@ -362,23 +445,23 @@ Main components
     font-size: 1rem;
     cursor: pointer;
 }
-#page-store .add-content .cd-item-info {
+.add-content .cd-item-info {
     /* class added at the end of the width animation, used to show the content */
     position: relative;
     visibility: visible;
     opacity: 1;
 }
-#page-store .add-content .cd-item-info h2 {
+.add-content .cd-item-info h2 {
     -webkit-animation: cd-slide-in 0.3s;
     -moz-animation: cd-slide-in 0.3s;
     animation: cd-slide-in 0.3s;
 }
-#page-store .add-content .cd-item-info p {
+.add-content .cd-item-info p {
     -webkit-animation: cd-slide-in 0.4s;
     -moz-animation: cd-slide-in 0.4s;
     animation: cd-slide-in 0.4s;
 }
-#page-store .add-content .cd-item-info .cd-item-action {
+.add-content .cd-item-info .cd-item-action {
     -webkit-animation: cd-slide-in 0.5s;
     -moz-animation: cd-slide-in 0.5s;
     animation: cd-slide-in 0.5s;
@@ -415,7 +498,7 @@ Main components
         transform: translate3d(0, 0, 0);
     }
 }
-#page-store .cd-close {
+.cd-close {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -435,9 +518,10 @@ Main components
     -webkit-transition: -webkit-transform .3s 0s, visibility 0s .3s;
     -moz-transition: -moz-transform .3s 0s, visibility 0s .3s;
     transition: transform .3s 0s, visibility 0s .3s;
+    z-index: 9999;
 }
-#page-store .cd-close::before,
-#page-store .cd-close::after {
+.cd-close::before,
+.cd-close::after {
     /* close icon in css */
     position: absolute;
     top: 12px;
@@ -449,28 +533,28 @@ Main components
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
-#page-store .cd-close::before {
+.cd-close::before {
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-#page-store .cd-close::after {
+.cd-close::after {
     -webkit-transform: rotate(135deg);
     -moz-transform: rotate(135deg);
     -ms-transform: rotate(135deg);
     -o-transform: rotate(135deg);
     transform: rotate(135deg);
 }
-#page-store .no-touch .cd-close:hover {
+.no-touch .cd-close:hover {
     -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
     -ms-transform: scale(1.2);
     -o-transform: scale(1.2);
     transform: scale(1.2);
 }
-#page-store .add-content .cd-close {
+.add-content .cd-close {
     visibility: visible;
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -480,4 +564,26 @@ Main components
     -webkit-transition: -webkit-transform .3s 0s, visibility 0s 0s;
     -moz-transition: -moz-transform .3s 0s, visibility 0s 0s;
     transition: transform .3s 0s, visibility 0s 0s;
+}
+.quick-view-content {
+    display: none
+}
+#cd-quick-view-coverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #000;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    opacity: 0;
+    display: none;
+}
+#cd-quick-view-coverlay.overlay_active {
+    display: block;
+    opacity: 1;
 }

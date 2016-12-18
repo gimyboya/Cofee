@@ -342,10 +342,7 @@
         }
     });
 
-    //quick view slider implementation
-    $('.cd-quick-view').on('click', '.cd-slider-navigation a', function () {
-        updateSlider($(this));
-    });
+    
 
     //center quick-view on window resize
     $(window).on('resize', function () {
@@ -354,19 +351,9 @@
         }
     });
 
-    function updateSlider(navigation) {
-        var sliderConatiner = navigation.parents('.cd-slider-wrapper').find('.cd-slider'),
-            activeSlider = sliderConatiner.children('.selected').removeClass('selected');
-        if (navigation.hasClass('cd-next')) {
-            (!activeSlider.is(':last-child')) ? activeSlider.next().addClass('selected'): sliderConatiner.children('li').eq(0).addClass('selected');
-        } else {
-            (!activeSlider.is(':first-child')) ? activeSlider.prev().addClass('selected'): sliderConatiner.children('li').last().addClass('selected');
-        }
-    }
+    
 
-    function updateQuickView(url) {
-        $('.cd-quick-view .cd-slider li').removeClass('selected').find('img[src="' + url + '"]').parent('li').addClass('selected');
-    }
+    
 
     function resizeQuickView() {
         var quickViewLeft = ($(window).width() - $('.cd-quick-view').width()) / 2,
