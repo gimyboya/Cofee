@@ -30,6 +30,10 @@ Reset
 #page-store ul {
     list-style: none;
 }
+#page-store .info ul {
+    list-style-type: circle;
+    display: block;
+}
 
 /* -------------------------------- 
 
