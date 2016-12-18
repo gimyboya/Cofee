@@ -30,10 +30,16 @@ Reset
 #page-store ul {
     list-style: none;
 }
-#page-store .info ul {
-    list-style-type: circle;
+#ex-info ul,
+#sp-info ul,
+#or-info ul {
+    margin-left: 1em;
     display: block;
+    font-size: 1.7em;
 }
+#ex-info ul li,
+#sp-info ul li,
+#or-info ul li {}
 
 /* -------------------------------- 
 
@@ -320,11 +326,12 @@ Main components
 }
 #page-store .cd-item-info h2 {
     font-size: 28px;
-    font-size: 1.75rem;
+    font-size: 3rem;
     align-self: center;
 }
 #page-store .cd-item-info p {
     line-height: 1.6;
+    font-size: 1.17rem;
     margin: 1em 0 0 10%;
     color: #67919c;
     align-self: center;
@@ -356,14 +363,14 @@ Main components
     appearance: none;
     border-radius: 0.25em;
     border: none;
-    padding: .6em 1.2em;
-    background-color: #f82f53;
-    color: #ffffff;
+    padding: .9em 3em;
+    background-color: #221E1F;
+    color: #fff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: "PT Sans", sans-serif;
-    font-size: 16px;
-    font-size: 1rem;
+    font-size: 20px;
+    font-size: 1.5rem;
     cursor: pointer;
 }
 #page-store .add-content .cd-item-info {
