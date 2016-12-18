@@ -319,7 +319,23 @@
     //open the quick view panel
     $('.cd-trigger').on('click', function (event) {
         var selectedImage = $(this).parent('.cd-item').children('img'),
-            slectedImageUrl = selectedImage.attr('src');
+            slectedImageUrl = selectedImage.attr('src'),
+            targetID = event.target.id;
+
+
+        if (targetID == "ex-trig") {
+            $('#ex-info').show();
+            $('#sp-info').hide();
+            $('#or-info').hide();
+        } else if (targetID == "sp-trig") {
+            $('#sp-info').show();
+            $('#ex-info').hide();
+            $('#or-info').hide();
+        } else if (targetID == "or-trig") {
+            $('#or-info').show();
+            $('#ex-info').hide();
+            $('#sp-info').hide();
+        }
 
         $('body').addClass('overlay-layer');
         animateQuickView(selectedImage, sliderFinalWidth, maxQuickWidth, 'open');
@@ -327,6 +343,8 @@
         //update the visible slider image in the quick view panel
         //you don't need to implement/use the updateQuickView if retrieving the quick view data with ajax
         updateQuickView(slectedImageUrl);
+
+
     });
 
     //close the quick view panel
@@ -430,6 +448,7 @@
                     $('.cd-quick-view').addClass('add-content');
                 });
             }).addClass('is-visible');
+
         } else {
             //close the quick view reverting the animation
             $('.cd-quick-view').removeClass('add-content').velocity({
