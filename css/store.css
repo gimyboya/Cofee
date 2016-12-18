@@ -321,7 +321,7 @@ Main components
 }
 #page-store .cd-item-info p {
     line-height: 1.6;
-    margin: 1em 0;
+    margin: 1em 0 0 10%;
     color: #67919c;
     align-self: center;
 }
@@ -334,6 +334,7 @@ Main components
 #page-store .cd-item-info .cd-item-action li {
     display: inline-block;
     margin-right: 1em;
+    display: flex;
 }
 #page-store .cd-item-info .cd-item-action li a {
     display: block;
