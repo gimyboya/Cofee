@@ -86,7 +86,7 @@
                 }
             } else {
                 classie.remove(page, 'page--inactive');
-                page.style.overflow = 'scroll';
+                //page.style.overflow = 'scroll'; //allow the page to scroll
             }
 
             page.style.zIndex = i < current ? parseInt(current - i) : parseInt(pagesTotal + current - i);
